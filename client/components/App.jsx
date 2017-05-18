@@ -1,10 +1,19 @@
 import React from 'react'
+import {HashRouter as Router, Route} from 'react-router-dom'
+import Header from './Header'
+
+
 
 const App = () => {
   return (
-    <h1>React development has begun!</h1>
+    <div>
+        <Router>
+          <div>
+            <Route path='/' component={Header}/>
+          </div>
+        </Router>
+    </div>
   )
 }
 
 export default App
-
