@@ -10989,10 +10989,39 @@ var _Header2 = _interopRequireDefault(_Header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App() {
+var App = function App(props) {
+  var circle = {
+    cx: props.width / 2,
+    cy: props.height / 2,
+    level: 0,
+    r: props.height / 12
+  };
+
+  var leftEye = {
+    cx: props.width / 2 - props.width / 48,
+    cy: props.height / 2 - props.height / 96,
+    level: 0,
+    r: props.height / 76
+  };
+  var rightEye = {
+    cx: props.width / 2 + props.width / 48,
+    cy: props.height / 2 - props.height / 96,
+    level: 0,
+    r: props.height / 76
+  };
+
+  console.log(props);
   return _react2.default.createElement(
     'div',
     null,
+    _react2.default.createElement(
+      'svg',
+      { width: props.width, height: props.height },
+      _react2.default.createElement('circle', { cx: circle.cx, cy: circle.cy, r: circle.r }),
+      _react2.default.createElement('circle', { cx: leftEye.cx, cy: leftEye.cy, r: leftEye.r }),
+      _react2.default.createElement('circle', { cx: rightEye.cx, cy: rightEye.cy, r: rightEye.r }),
+      _react2.default.createElement('polygon', { points: circle.cx + ' ' + circle.cy + ',' + (circle.cx + 1.2 * circle.r) + ' ' + (circle.cy + 0.2 * circle.r) + ', ' + circle.cx + ' ' + (circle.cy + 0.3 * circle.r) })
+    ),
     _react2.default.createElement(
       _reactRouterDom.HashRouter,
       null,
@@ -11066,7 +11095,7 @@ var _App2 = _interopRequireDefault(_App);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
-  _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
+  _reactDom2.default.render(_react2.default.createElement(_App2.default, { width: window.innerWidth, height: window.innerHeight }), document.getElementById('app'));
 });
 
 /***/ }),
