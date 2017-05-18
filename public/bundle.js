@@ -11069,12 +11069,17 @@ var Clock = function (_React$Component) {
   _createClass(Clock, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      setInterval(this.recolour, 500);
+      setInterval(this.recolour, 50);
     }
   }, {
     key: 'recolour',
     value: function recolour() {
-      console.log('hi');
+      var date = new Date();
+      var s = Math.floor(date.getSeconds() * 255 / 59);
+      var m = Math.floor(date.getMinutes() * 255 / 59);
+      var h = Math.floor(date.getHours() * 255 / 23);
+
+      document.body.style.backgroundColor = 'rgb(' + s + ',' + m + ',' + h + ')';
     }
   }, {
     key: 'render',
