@@ -10987,6 +10987,10 @@ var _Header = __webpack_require__(96);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _Face = __webpack_require__(224);
+
+var _Face2 = _interopRequireDefault(_Face);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App(props) {
@@ -11017,10 +11021,7 @@ var App = function App(props) {
     _react2.default.createElement(
       'svg',
       { width: props.width, height: props.height },
-      _react2.default.createElement('circle', { cx: circle.cx, cy: circle.cy, r: circle.r }),
-      _react2.default.createElement('circle', { cx: leftEye.cx, cy: leftEye.cy, r: leftEye.r }),
-      _react2.default.createElement('circle', { cx: rightEye.cx, cy: rightEye.cy, r: rightEye.r }),
-      _react2.default.createElement('polygon', { points: circle.cx + ' ' + circle.cy + ',' + (circle.cx + 1.2 * circle.r) + ' ' + (circle.cy + 0.2 * circle.r) + ', ' + circle.cx + ' ' + (circle.cy + 0.3 * circle.r) })
+      _react2.default.createElement(_Face2.default, { circle: circle, leftEye: leftEye, rightEye: rightEye })
     ),
     _react2.default.createElement(
       _reactRouterDom.HashRouter,
@@ -25443,6 +25444,61 @@ var valueEqual = function valueEqual(a, b) {
 };
 
 exports.default = valueEqual;
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Face = function (_React$Component) {
+  _inherits(Face, _React$Component);
+
+  function Face(props) {
+    _classCallCheck(this, Face);
+
+    return _possibleConstructorReturn(this, (Face.__proto__ || Object.getPrototypeOf(Face)).call(this, props));
+  }
+
+  _createClass(Face, [{
+    key: 'render',
+    value: function render() {
+      console.log('rendering');
+
+      return _react2.default.createElement(
+        'g',
+        null,
+        _react2.default.createElement('circle', { cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
+        _react2.default.createElement('circle', { cx: this.props.leftEye.cx, cy: this.props.leftEye.cy, r: this.props.leftEye.r }),
+        _react2.default.createElement('circle', { cx: this.props.rightEye.cx, cy: this.props.rightEye.cy, r: this.props.rightEye.r }),
+        _react2.default.createElement('polygon', { points: this.props.circle.cx + ' ' + this.props.circle.cy + ',' + (this.props.circle.cx + 1.2 * this.props.circle.r) + ' ' + (this.props.circle.cy + 0.2 * this.props.circle.r) + ', ' + this.props.circle.cx + ' ' + (this.props.circle.cy + 0.3 * this.props.circle.r) })
+      );
+    }
+  }]);
+
+  return Face;
+}(_react2.default.Component);
+
+exports.default = Face;
 
 /***/ })
 /******/ ]);

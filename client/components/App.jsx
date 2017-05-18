@@ -1,6 +1,7 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 import Header from './Header'
+import Face from './Face'
 
 const App = props => {
   const circle = {
@@ -27,10 +28,7 @@ console.log(props);
   return (
     <div>
       <svg width={props.width} height={props.height}>
-        <circle cx={circle.cx} cy={circle.cy} r={circle.r}/>
-        <circle cx={leftEye.cx} cy={leftEye.cy} r={leftEye.r}/>
-        <circle cx={rightEye.cx} cy={rightEye.cy} r={rightEye.r}/>
-        <polygon points={`${circle.cx} ${circle.cy},${circle.cx + 1.2*circle.r} ${circle.cy+0.2*circle.r}, ${circle.cx} ${circle.cy+ 0.3*circle.r}`}/>
+      <Face circle={circle} leftEye={leftEye} rightEye={rightEye}/>
       </svg>
 
       <Router>
