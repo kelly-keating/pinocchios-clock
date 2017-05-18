@@ -1,6 +1,18 @@
 import React from 'react'
 
+class Textdislay extends React.Component {
+  render() {
+    return (
+      <p> I am funny text being displayed! </p>
+    )
+  }
+}
+
 class Textbox extends React.Component {
+  renderTestdisplay(){
+    return <Textdisplay />
+  }
+
   constructor(props) {
     super(props);
     this.state = {value: 'I never peed in a swimming pool'};

@@ -11074,19 +11074,49 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Textbox = function (_React$Component) {
-  _inherits(Textbox, _React$Component);
+var Textdislay = function (_React$Component) {
+  _inherits(Textdislay, _React$Component);
+
+  function Textdislay() {
+    _classCallCheck(this, Textdislay);
+
+    return _possibleConstructorReturn(this, (Textdislay.__proto__ || Object.getPrototypeOf(Textdislay)).apply(this, arguments));
+  }
+
+  _createClass(Textdislay, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'p',
+        null,
+        ' I am funny text being displayed! '
+      );
+    }
+  }]);
+
+  return Textdislay;
+}(_react2.default.Component);
+
+var Textbox = function (_React$Component2) {
+  _inherits(Textbox, _React$Component2);
+
+  _createClass(Textbox, [{
+    key: 'renderTestdisplay',
+    value: function renderTestdisplay() {
+      return _react2.default.createElement(Textdisplay, null);
+    }
+  }]);
 
   function Textbox(props) {
     _classCallCheck(this, Textbox);
 
-    var _this = _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
 
-    _this.state = { value: 'I never peed in a swimming pool' };
+    _this2.state = { value: 'I never peed in a swimming pool' };
 
-    _this.handleChange = _this.handleChange.bind(_this);
-    _this.handleSubmit = _this.handleSubmit.bind(_this);
-    return _this;
+    _this2.handleChange = _this2.handleChange.bind(_this2);
+    _this2.handleSubmit = _this2.handleSubmit.bind(_this2);
+    return _this2;
   }
 
   _createClass(Textbox, [{
