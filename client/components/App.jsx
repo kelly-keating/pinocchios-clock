@@ -29,17 +29,14 @@ const App = props => {
 
   return (
     <div>
-
-
       <Router>
         <div>
-          <Route exact path='/' component={Header}/>
           <Route path='/' component={Clock}/>
-          <Route path='/' component={Textbox} />
+          <Route exact path='/' component={Textbox} display='true' />
         </div>
        </Router>
        <svg width={props.width} height={props.height}>
-       <Face circle={circle} leftEye={leftEye} rightEye={rightEye}/>
+         <Face circle={circle} leftEye={leftEye} rightEye={rightEye}/>
        </svg>
     </div>
   )

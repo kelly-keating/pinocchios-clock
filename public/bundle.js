@@ -11031,9 +11031,8 @@ var App = function App(props) {
       _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Header2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Clock2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Textbox2.default })
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Textbox2.default, display: 'true' })
       )
     ),
     _react2.default.createElement(
@@ -11073,6 +11072,8 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(201);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11087,23 +11088,14 @@ var Clock = function (_React$Component) {
   function Clock(props) {
     _classCallCheck(this, Clock);
 
-    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
-
-    _this.state = {
-      colour: {
-        red: 0,
-        green: 0,
-        blue: 0
-      }
-    };
-
-    return _this;
+    return _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
   }
 
   _createClass(Clock, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       setInterval(this.recolour, 50);
+      console.log(this.props.location.pathname);
     }
   }, {
     key: 'recolour',
@@ -11116,13 +11108,33 @@ var Clock = function (_React$Component) {
       document.body.style.backgroundColor = 'rgb(' + s + ',' + m + ',' + h + ')';
     }
   }, {
-    key: 'render',
-    value: function render() {
+    key: 'linkToClock',
+    value: function linkToClock() {
+      return _react2.default.createElement(
+        'div',
+        { id: 'homeClock' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/clock' },
+          'WHAT COLOUR IS IT?'
+        )
+      );
+    }
+  }, {
+    key: 'ownPage',
+    value: function ownPage() {
       return _react2.default.createElement(
         'div',
         { id: 'clock' },
         'TIME'
       );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var page = this.props.location.pathname;
+      var content = page === '/clock' ? this.ownPage() : this.linkToClock();
+      return content;
     }
   }]);
 
@@ -11168,7 +11180,6 @@ var Face = function (_React$Component) {
   _createClass(Face, [{
     key: 'render',
     value: function render() {
-      console.log('rendering');
 
       return _react2.default.createElement(
         'g',

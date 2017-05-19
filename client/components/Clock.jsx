@@ -1,22 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Clock extends React.Component {
 
   constructor (props) {
     super(props)
-
-    this.state = {
-      colour: {
-        red: 0,
-        green: 0,
-        blue: 0
-      }
-    }
-
   }
 
   componentDidMount(){
     setInterval(this.recolour, 50)
+    console.log(this.props.location.pathname);
   }
 
   recolour() {
@@ -28,10 +21,23 @@ class Clock extends React.Component {
     document.body.style.backgroundColor = `rgb(${s},${m},${h})`
   }
 
+  linkToClock() {
+    return (
+      <div id='homeClock'><Link to='/clock'>WHAT COLOUR IS IT?</Link></div>
+    )
+  }
 
-  render(){
+  ownPage() {
     return(
       <div id='clock'>TIME</div>
+      )
+  }
+
+  render(){
+    var page = this.props.location.pathname
+    var content = (page === '/clock') ? this.ownPage() : this.linkToClock()
+    return(
+      content
     )
   }
 
