@@ -11149,19 +11149,34 @@ var Clock = function (_React$Component) {
   function Clock(props) {
     _classCallCheck(this, Clock);
 
-    return _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+
+    _this.state = {
+      h: 0,
+      m: 0,
+      s: 0
+    };
+    return _this;
   }
 
   _createClass(Clock, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      setInterval(this.recolour, 50);
-      console.log(this.props.location.pathname);
+      var _this2 = this;
+
+      setInterval(function () {
+        _this2.recolour();
+      }, 50);
     }
   }, {
     key: 'recolour',
     value: function recolour() {
       var date = new Date();
+      this.setState({
+        h: date.getHours(),
+        m: date.getMinutes(),
+        s: date.getSeconds()
+      });
       var s = Math.floor(date.getSeconds() * 255 / 59);
       var m = Math.floor(date.getMinutes() * 255 / 59);
       var h = Math.floor(date.getHours() * 255 / 23);
@@ -11184,6 +11199,11 @@ var Clock = function (_React$Component) {
   }, {
     key: 'ownPage',
     value: function ownPage() {
+      var date = new Date();
+      var s = date.getSeconds();
+      var m = date.getMinutes();
+      var h = date.getHours();
+
       return _react2.default.createElement(
         'div',
         { id: 'clock' },
@@ -11191,11 +11211,17 @@ var Clock = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { id: 'time' },
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/' },
-            'BACK IN'
-          )
+          '#',
+          h,
+          ':',
+          m,
+          ':',
+          s
+        ),
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/' },
+          'BACK IN'
         )
       );
     }
