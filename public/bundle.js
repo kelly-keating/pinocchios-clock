@@ -11002,35 +11002,29 @@ var _Clock2 = _interopRequireDefault(_Clock);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App(props) {
+
   var circle = {
     cx: props.width / 2,
-    cy: props.height / 2,
+    cy: props.height / 4,
     level: 0,
     r: props.height / 12
   };
-
   var leftEye = {
     cx: props.width / 2 - props.width / 48,
-    cy: props.height / 2 - props.height / 96,
+    cy: props.height / 4 - props.height / 96,
     level: 0,
     r: props.height / 76
   };
   var rightEye = {
     cx: props.width / 2 + props.width / 48,
-    cy: props.height / 2 - props.height / 96,
+    cy: props.height / 4 - props.height / 96,
     level: 0,
     r: props.height / 76
   };
 
-  console.log(props);
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'svg',
-      { width: props.width, height: props.height },
-      _react2.default.createElement(_Face2.default, { circle: circle, leftEye: leftEye, rightEye: rightEye })
-    ),
     _react2.default.createElement(
       _reactRouterDom.HashRouter,
       null,
@@ -11039,8 +11033,13 @@ var App = function App(props) {
         null,
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Textbox2.default })
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Header2.default }),
-        _react2.default.createElement(_reactRouterDom.Route, { path: '/clock', component: _Clock2.default })
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Clock2.default })
       )
+    ),
+    _react2.default.createElement(
+      'svg',
+      { width: props.width, height: props.height },
+      _react2.default.createElement(_Face2.default, { circle: circle, leftEye: leftEye, rightEye: rightEye })
     )
   );
 };
@@ -25634,7 +25633,7 @@ var valueEqual = function valueEqual(a, b) {
 exports.default = valueEqual;
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25675,7 +25674,7 @@ var Face = function (_React$Component) {
       return _react2.default.createElement(
         'g',
         null,
-        _react2.default.createElement('circle', { cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
+        _react2.default.createElement('circle', { fill: 'white', cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
         _react2.default.createElement('circle', { cx: this.props.leftEye.cx, cy: this.props.leftEye.cy, r: this.props.leftEye.r }),
         _react2.default.createElement('circle', { cx: this.props.rightEye.cx, cy: this.props.rightEye.cy, r: this.props.rightEye.r }),
         _react2.default.createElement('polygon', { points: this.props.circle.cx + ' ' + this.props.circle.cy + ',' + (this.props.circle.cx + 1.2 * this.props.circle.r) + ' ' + (this.props.circle.cy + 0.2 * this.props.circle.r) + ', ' + this.props.circle.cx + ' ' + (this.props.circle.cy + 0.3 * this.props.circle.r) })
