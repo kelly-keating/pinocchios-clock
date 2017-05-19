@@ -11031,7 +11031,6 @@ var App = function App(props) {
       _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Header2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Clock2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Textbox2.default })
       )
@@ -11205,9 +11204,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Header = function Header() {
   return _react2.default.createElement(
-    'h1',
-    null,
-    'Pinocchio\'s Clock!'
+    "div",
+    { className: "header" },
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Pinocchio's Clock"
+    )
   );
 };
 
@@ -11238,45 +11241,41 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Textdislay = function (_React$Component) {
-  _inherits(Textdislay, _React$Component);
+var Textdisplay = function (_React$Component) {
+  _inherits(Textdisplay, _React$Component);
 
-  function Textdislay() {
-    _classCallCheck(this, Textdislay);
+  function Textdisplay() {
+    _classCallCheck(this, Textdisplay);
 
-    return _possibleConstructorReturn(this, (Textdislay.__proto__ || Object.getPrototypeOf(Textdislay)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Textdisplay.__proto__ || Object.getPrototypeOf(Textdisplay)).apply(this, arguments));
   }
 
-  _createClass(Textdislay, [{
+  _createClass(Textdisplay, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'p',
         null,
-        ' I am funny text being displayed! '
+        this.props.text
       );
     }
   }]);
 
-  return Textdislay;
+  return Textdisplay;
 }(_react2.default.Component);
 
 var Textbox = function (_React$Component2) {
   _inherits(Textbox, _React$Component2);
-
-  _createClass(Textbox, [{
-    key: 'renderTestdisplay',
-    value: function renderTestdisplay() {
-      return _react2.default.createElement(Textdisplay, null);
-    }
-  }]);
 
   function Textbox(props) {
     _classCallCheck(this, Textbox);
 
     var _this2 = _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
 
-    _this2.state = { value: 'I never peed in a swimming pool' };
+    _this2.state = {
+      value: 'I never peed in a swimming pool',
+      display: null
+    };
 
     _this2.handleChange = _this2.handleChange.bind(_this2);
     _this2.handleSubmit = _this2.handleSubmit.bind(_this2);
@@ -11286,7 +11285,9 @@ var Textbox = function (_React$Component2) {
   _createClass(Textbox, [{
     key: 'handleChange',
     value: function handleChange(event) {
-      this.setState({ value: event.target.value });
+      this.setState({
+        value: event.target.value
+      });
     }
   }, {
     key: 'handleSubmit',
@@ -11298,15 +11299,24 @@ var Textbox = function (_React$Component2) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'form',
-        { className: 'textbox', onSubmit: this.handleSubmit },
+        'div',
+        null,
+        _react2.default.createElement(Textdisplay, { text: this.state.value }),
         _react2.default.createElement(
-          'label',
-          { className: 'label' },
-          'Tell me something:',
-          _react2.default.createElement('input', { className: 'inputbox', type: 'text', value: this.state.value, onChange: this.handleChange })
-        ),
-        _react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Submit' })
+          'form',
+          { className: 'textbox', onSubmit: this.handleSubmit },
+          _react2.default.createElement(
+            'label',
+            { className: 'label' },
+            _react2.default.createElement(
+              'span',
+              null,
+              ' Tell me something: '
+            ),
+            _react2.default.createElement('input', { className: 'inputbox', type: 'text', value: this.state.value, onChange: this.handleChange })
+          ),
+          _react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Submit' })
+        )
       );
     }
   }]);

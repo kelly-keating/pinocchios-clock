@@ -33,7 +33,6 @@ const App = props => {
 
       <Router>
         <div>
-          <Route exact path='/' component={Header}/>
           <Route path='/' component={Clock}/>
           <Route path='/' component={Textbox} />
         </div>
