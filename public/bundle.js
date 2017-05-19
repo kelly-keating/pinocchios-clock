@@ -11027,13 +11027,14 @@ var App = function App(props) {
       _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Header2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Clock2.default }),
+
         _react2.default.createElement(
           _reactRouterDom.Route,
           { exact: true, path: '/' },
           _react2.default.createElement(_Textbox2.default, { width: props.width, height: props.height, circle: circle, leftEye: leftEye, rightEye: rightEye })
         )
+
       )
     )
   );
@@ -11062,7 +11063,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+
+
 var _react = __webpack_require__(7);
+
 
 var _react2 = _interopRequireDefault(_react);
 

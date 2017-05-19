@@ -29,19 +29,14 @@ const App = props => {
 
   return (
     <div>
-
-
       <Router>
         <div>
-          <Route exact path='/' component={Header}/>
           <Route path='/' component={Clock}/>
           <Route exact path='/' >
             <Textbox width={props.width} height={props.height} circle={circle} leftEye={leftEye} rightEye={rightEye}/>
           </Route>
-
         </div>
-       </Router>
-
+      </Router>
     </div>
   )
 }
