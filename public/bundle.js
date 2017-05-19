@@ -11112,11 +11112,11 @@ var Clock = function (_React$Component) {
     value: function linkToClock() {
       return _react2.default.createElement(
         'div',
-        { id: 'homeClock' },
+        { id: 'clock' },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/clock' },
-          'WHAT COLOUR IS IT?'
+          'TIME'
         )
       );
     }
@@ -11126,7 +11126,8 @@ var Clock = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { id: 'clock' },
-        'TIME'
+        'TIME',
+        _react2.default.createElement('div', { id: 'time' })
       );
     }
   }, {

@@ -5,6 +5,7 @@ class Clock extends React.Component {
 
   constructor (props) {
     super(props)
+
   }
 
   componentDidMount(){
@@ -23,14 +24,16 @@ class Clock extends React.Component {
 
   linkToClock() {
     return (
-      <div id='homeClock'><Link to='/clock'>WHAT COLOUR IS IT?</Link></div>
+      <div id='clock'><Link to='/clock'>TIME</Link></div>
     )
   }
 
   ownPage() {
     return(
-      <div id='clock'>TIME</div>
-      )
+      <div id='clock'>TIME
+        <div id='time'></div>
+      </div>
+    )
   }
 
   render(){
