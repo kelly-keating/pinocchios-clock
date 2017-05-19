@@ -11378,7 +11378,7 @@ var Textdisplay = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'p',
-        null,
+        { className: 'display-text' },
         this.props.text
       );
     }
@@ -11425,7 +11425,6 @@ var Textbox = function (_React$Component2) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(Textdisplay, { text: this.state.value }),
         _react2.default.createElement(
           'form',
           { className: 'textbox', onSubmit: this.handleSubmit },
@@ -11437,6 +11436,7 @@ var Textbox = function (_React$Component2) {
           ),
           _react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Submit' })
         ),
+        _react2.default.createElement(Textdisplay, { text: this.state.value }),
         _react2.default.createElement(
           'svg',
           { width: this.props.content.width, height: this.props.content.height },
