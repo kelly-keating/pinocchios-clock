@@ -11031,7 +11031,7 @@ var App = function App(props) {
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Clock2.default }),
         _react2.default.createElement(
           _reactRouterDom.Route,
-          { path: '/' },
+          { exact: true, path: '/' },
           _react2.default.createElement(_Textbox2.default, { width: props.width, height: props.height, circle: circle, leftEye: leftEye, rightEye: rightEye })
         )
       )
@@ -25494,7 +25494,7 @@ var Face = function (_React$Component) {
         _react2.default.createElement('circle', { fill: 'white', cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
         _react2.default.createElement('circle', { cx: this.props.leftEye.cx, cy: this.props.leftEye.cy, r: this.props.leftEye.r }),
         _react2.default.createElement('circle', { cx: this.props.rightEye.cx, cy: this.props.rightEye.cy, r: this.props.rightEye.r }),
-        _react2.default.createElement('polygon', { points: this.props.circle.cx + ' ' + this.props.circle.cy + ',' + (this.props.circle.cx + 1.2 * this.props.circle.r) + ' ' + (this.props.circle.cy + 0.2 * this.props.circle.r) + ', ' + this.props.circle.cx + ' ' + (this.props.circle.cy + 0.3 * this.props.circle.r) })
+        _react2.default.createElement('polygon', { points: this.props.circle.cx + ' ' + this.props.circle.cy + ',' + (this.props.circle.cx + 1.2 * this.props.circle.r * this.props.counter) + ' ' + (this.props.circle.cy + 0.2 * this.props.circle.r) + ', ' + this.props.circle.cx + ' ' + (this.props.circle.cy + 0.3 * this.props.circle.r) })
       );
     }
   }]);
@@ -25648,7 +25648,7 @@ var Textbox = function (_React$Component2) {
 
     _this2.state = {
       value: 'I never peed in a swimming pool',
-      counter: 0
+      counter: 1
     };
 
     _this2.handleChange = _this2.handleChange.bind(_this2);
@@ -25692,7 +25692,7 @@ var Textbox = function (_React$Component2) {
         _react2.default.createElement(
           'svg',
           { width: this.props.width, height: this.props.height },
-          _react2.default.createElement(_Face2.default, { circle: this.props.circle, leftEye: this.props.leftEye, rightEye: this.props.rightEye })
+          _react2.default.createElement(_Face2.default, { counter: this.state.counter, circle: this.props.circle, leftEye: this.props.leftEye, rightEye: this.props.rightEye })
         )
       );
     }

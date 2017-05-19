@@ -20,7 +20,7 @@ class Textbox extends React.Component {
     super(props);
     this.state = {
       value: 'I never peed in a swimming pool',
-      counter: 0
+      counter: 1
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -52,7 +52,7 @@ class Textbox extends React.Component {
           <input className="submit-button" type="submit" value="Submit"/>
         </form>
         <svg width={this.props.width} height={this.props.height}>
-        <Face circle={this.props.circle} leftEye={this.props.leftEye} rightEye={this.props.rightEye}/>
+        <Face counter={this.state.counter} circle={this.props.circle} leftEye={this.props.leftEye} rightEye={this.props.rightEye}/>
         </svg>
       </div>
 
