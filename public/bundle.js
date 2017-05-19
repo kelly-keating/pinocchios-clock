@@ -10987,13 +10987,17 @@ var _Header = __webpack_require__(97);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _Textbox = __webpack_require__(97);
+
+var _Textbox2 = _interopRequireDefault(_Textbox);
+
+var _Face = __webpack_require__(224);
+
+var _Face2 = _interopRequireDefault(_Face);
+
 var _Clock = __webpack_require__(96);
 
 var _Clock2 = _interopRequireDefault(_Clock);
-
-var _Face = __webpack_require__(225);
-
-var _Face2 = _interopRequireDefault(_Face);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11027,6 +11031,7 @@ var App = function App(props) {
       _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Textbox2.default })
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Header2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Clock2.default })
       )
@@ -11152,6 +11157,109 @@ var Header = function Header() {
 };
 
 exports.default = Header;
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Textdislay = function (_React$Component) {
+  _inherits(Textdislay, _React$Component);
+
+  function Textdislay() {
+    _classCallCheck(this, Textdislay);
+
+    return _possibleConstructorReturn(this, (Textdislay.__proto__ || Object.getPrototypeOf(Textdislay)).apply(this, arguments));
+  }
+
+  _createClass(Textdislay, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'p',
+        null,
+        ' I am funny text being displayed! '
+      );
+    }
+  }]);
+
+  return Textdislay;
+}(_react2.default.Component);
+
+var Textbox = function (_React$Component2) {
+  _inherits(Textbox, _React$Component2);
+
+  _createClass(Textbox, [{
+    key: 'renderTestdisplay',
+    value: function renderTestdisplay() {
+      return _react2.default.createElement(Textdisplay, null);
+    }
+  }]);
+
+  function Textbox(props) {
+    _classCallCheck(this, Textbox);
+
+    var _this2 = _possibleConstructorReturn(this, (Textbox.__proto__ || Object.getPrototypeOf(Textbox)).call(this, props));
+
+    _this2.state = { value: 'I never peed in a swimming pool' };
+
+    _this2.handleChange = _this2.handleChange.bind(_this2);
+    _this2.handleSubmit = _this2.handleSubmit.bind(_this2);
+    return _this2;
+  }
+
+  _createClass(Textbox, [{
+    key: 'handleChange',
+    value: function handleChange(event) {
+      this.setState({ value: event.target.value });
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      alert('Submit at your own risk. If you lied, horrible things will happen to Pinocchio!');
+      event.preventDefault();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'form',
+        { className: 'textbox', onSubmit: this.handleSubmit },
+        _react2.default.createElement(
+          'label',
+          { className: 'label' },
+          'Tell me something:',
+          _react2.default.createElement('input', { className: 'inputbox', type: 'text', value: this.state.value, onChange: this.handleChange })
+        ),
+        _react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Submit' })
+      );
+    }
+  }]);
+
+  return Textbox;
+}(_react2.default.Component);
+
+exports.default = Textbox;
 
 /***/ }),
 /* 98 */

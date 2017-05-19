@@ -1,6 +1,8 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
+
 import Header from './Header'
+import Textbox from './Textbox'
 import Clock from './Clock'
 import Face from './Face'
 
@@ -33,6 +35,7 @@ const App = props => {
         <div>
           <Route exact path='/' component={Header}/>
           <Route path='/' component={Clock}/>
+          <Route path='/' component={Textbox} />
         </div>
        </Router>
        <svg width={props.width} height={props.height}>
