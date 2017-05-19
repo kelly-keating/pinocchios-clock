@@ -1,6 +1,11 @@
+
 .header {
   text-align: center;
   color: white;
+}
+
+.body{
+  background-color: #C0FFEE
 }
 
 .textbox {
@@ -19,4 +24,9 @@
   font-family: Arial, sans-serif;
   color: white;
   text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }

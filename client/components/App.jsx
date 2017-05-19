@@ -4,7 +4,7 @@ import {HashRouter as Router, Route} from 'react-router-dom'
 import Header from './Header'
 import Textbox from './Textbox'
 import Clock from './Clock'
-import Face from './Face'
+
 
 const App = props => {
 
@@ -29,17 +29,14 @@ const App = props => {
 
   return (
     <div>
-
-
       <Router>
         <div>
           <Route path='/' component={Clock}/>
-          <Route path='/' component={Textbox} />
+          <Route exact path='/' >
+            <Textbox width={props.width} height={props.height} circle={circle} leftEye={leftEye} rightEye={rightEye}/>
+          </Route>
         </div>
-       </Router>
-       <svg width={props.width} height={props.height}>
-       <Face circle={circle} leftEye={leftEye} rightEye={rightEye}/>
-       </svg>
+      </Router>
     </div>
   )
 }
