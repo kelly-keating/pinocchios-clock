@@ -4,10 +4,8 @@ import Face from './Face'
 class Textdisplay extends React.Component {
   render() {
     return (
-      <p>
-
+      <p className="display-text">
       {this.props.text}
-
       </p>
     )
   }
@@ -41,7 +39,6 @@ class Textbox extends React.Component {
   render() {
     return(
       <div>
-        <Textdisplay text={this.state.value}/>
         <form className="textbox" onSubmit={this.handleSubmit}>
           <label className="label">
             Tell me something:
@@ -49,6 +46,7 @@ class Textbox extends React.Component {
           </label>
           <input className="submit-button" type="submit" value="Submit"/>
         </form>
+        <Textdisplay text={this.state.value}/>
         <svg width={this.props.content.width} height={this.props.content.height}>
           <Face counter={this.state.counter} circle={this.props.content.circle} leftEye={this.props.content.leftEye} rightEye={this.props.content.rightEye}/>
         </svg>
