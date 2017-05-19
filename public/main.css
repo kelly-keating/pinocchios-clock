@@ -1,9 +1,3 @@
-
-.header {
-  text-align: center;
-  color: white;
-}
-
 .body{
   background-color: #C0FFEE
 }
@@ -13,6 +7,12 @@
   font-size: 1.5em;
   text-align: center;
   color:white;
+}
+
+.display-text {
+  text-align: center;
+  font-family: 'Barrio', cursive;
+  font-size: 2em;
 }
 
 .inputbox {

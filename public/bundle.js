@@ -11270,24 +11270,32 @@ var Face = function (_React$Component) {
   function Face(props) {
     _classCallCheck(this, Face);
 
-    var _this = _possibleConstructorReturn(this, (Face.__proto__ || Object.getPrototypeOf(Face)).call(this, props));
-
-    console.log({ props: props });
-    return _this;
+    return _possibleConstructorReturn(this, (Face.__proto__ || Object.getPrototypeOf(Face)).call(this, props));
   }
 
   _createClass(Face, [{
     key: 'render',
     value: function render() {
+      console.log('rendering');
+      if (this.props.counter < 4) {
+        return _react2.default.createElement(
+          'g',
+          null,
+          _react2.default.createElement('circle', { fill: 'white', cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
+          _react2.default.createElement('circle', { cx: this.props.leftEye.cx, cy: this.props.leftEye.cy, r: this.props.leftEye.r }),
+          _react2.default.createElement('circle', { cx: this.props.rightEye.cx, cy: this.props.rightEye.cy, r: this.props.rightEye.r }),
+          _react2.default.createElement('polygon', { points: this.props.circle.cx + ' ' + this.props.circle.cy + ',' + (this.props.circle.cx + 1.2 * this.props.circle.r * this.props.counter) + ' ' + (this.props.circle.cy + 0.2 * this.props.circle.r) + ', ' + this.props.circle.cx + ' ' + (this.props.circle.cy + 0.3 * this.props.circle.r) })
+        );
+      } else {
 
-      return _react2.default.createElement(
-        'g',
-        null,
-        _react2.default.createElement('circle', { fill: 'white', cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
-        _react2.default.createElement('circle', { cx: this.props.leftEye.cx, cy: this.props.leftEye.cy, r: this.props.leftEye.r }),
-        _react2.default.createElement('circle', { cx: this.props.rightEye.cx, cy: this.props.rightEye.cy, r: this.props.rightEye.r }),
-        _react2.default.createElement('polygon', { points: this.props.circle.cx + ' ' + this.props.circle.cy + ',' + (this.props.circle.cx + 1.2 * this.props.circle.r * this.props.counter) + ' ' + (this.props.circle.cy + 0.2 * this.props.circle.r) + ', ' + this.props.circle.cx + ' ' + (this.props.circle.cy + 0.3 * this.props.circle.r) })
-      );
+        return _react2.default.createElement(
+          'g',
+          null,
+          _react2.default.createElement('circle', { fill: 'white', cx: this.props.circle.cx, cy: this.props.circle.cy, r: this.props.circle.r }),
+          _react2.default.createElement('circle', { cx: this.props.leftEye.cx, cy: this.props.leftEye.cy + 20, r: this.props.leftEye.r }),
+          _react2.default.createElement('circle', { cx: this.props.rightEye.cx, cy: this.props.rightEye.cy + 30, r: this.props.rightEye.r })
+        );
+      }
     }
   }]);
 
