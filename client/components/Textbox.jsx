@@ -31,7 +31,6 @@ class Textbox extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
     alert(`Submit at your own risk. If you lied, horrible things will happen to Pinocchio!`)
     event.preventDefault();
     this.setState({
@@ -50,8 +49,8 @@ class Textbox extends React.Component {
           </label>
           <input className="submit-button" type="submit" value="Submit"/>
         </form>
-        <svg width={this.props.width} height={this.props.height}>
-        <Face counter={this.state.counter} circle={this.props.circle} leftEye={this.props.leftEye} rightEye={this.props.rightEye}/>
+        <svg width={this.props.content.width} height={this.props.content.height}>
+          <Face counter={this.state.counter} circle={this.props.content.circle} leftEye={this.props.content.leftEye} rightEye={this.props.content.rightEye}/>
         </svg>
       </div>
     )

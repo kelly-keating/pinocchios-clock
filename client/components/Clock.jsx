@@ -31,7 +31,9 @@ class Clock extends React.Component {
   ownPage() {
     return(
       <div id='clock'>TIME
-        <div id='time'></div>
+        <div id='time'>
+          <Link to='/'>BACK IN</Link>
+        </div>
       </div>
     )
   }

@@ -27,14 +27,23 @@ const App = props => {
     r: props.height/ 76
   }
 
+  const renderTextBox = () => {
+    const content = {
+      width: props.width,
+      height: props.height,
+      circle,
+      leftEye,
+      rightEye
+    }
+    return <Textbox content={content} />
+  }
+
   return (
     <div>
       <Router>
         <div>
           <Route path='/' component={Clock}/>
-          <Route exact path='/' >
-            <Textbox width={props.width} height={props.height} circle={circle} leftEye={leftEye} rightEye={rightEye}/>
-          </Route>
+          <Route exact path='/' component={renderTextBox}/>
         </div>
       </Router>
     </div>
