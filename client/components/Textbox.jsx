@@ -1,20 +1,19 @@
 import React from 'react'
 import Face from './Face'
 
-class Textdislay extends React.Component {
+class Textdisplay extends React.Component {
   render() {
     return (
       <p>
-        I am funny text being displayed!
+
+      {this.props.text}
+
       </p>
     )
   }
 }
 
 class Textbox extends React.Component {
-  renderTestdisplay() {
-    return <Textdisplay/>
-  }
 
   constructor(props) {
     super(props);
@@ -28,7 +27,6 @@ class Textbox extends React.Component {
   }
 
   handleChange(event) {
-
     this.setState({value: event.target.value})
   }
 
@@ -42,8 +40,9 @@ class Textbox extends React.Component {
   }
 
   render() {
-    return (
+    return(
       <div>
+        <Textdisplay text={this.state.value}/>
         <form className="textbox" onSubmit={this.handleSubmit}>
           <label className="label">
             Tell me something:
@@ -55,7 +54,6 @@ class Textbox extends React.Component {
         <Face counter={this.state.counter} circle={this.props.circle} leftEye={this.props.leftEye} rightEye={this.props.rightEye}/>
         </svg>
       </div>
-
     )
   }
 }
