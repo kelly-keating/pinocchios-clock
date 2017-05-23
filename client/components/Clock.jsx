@@ -23,11 +23,17 @@ class Clock extends React.Component {
       m: date.getMinutes(),
       s: date.getSeconds()
     })
-    var s = Math.floor(date.getSeconds()*255/59)
-    var m = Math.floor(date.getMinutes()*255/59)
-    var h = Math.floor(date.getHours()*255/23)
+    var s = this.colour(this.state.s, 60)
+    var m = this.colour(this.state.m, 60)
+    var h = this.colour(this.state.h, 24)
+
+    console.log(`${h} ${m} ${s}`);
 
     document.body.style.backgroundColor = `rgb(${s},${m},${h})`
+  }
+
+  colour(time, base) {
+    return Math.floor(time*255/(base-1))
   }
 
   linkToClock() {
@@ -37,15 +43,10 @@ class Clock extends React.Component {
   }
 
   ownPage() {
-    var date = new Date()
-    var s = date.getSeconds()
-    var m = date.getMinutes()
-    var h = date.getHours()
-
     return(
       <div id='clock'>
         TIME
-        <div id='time'>#{h}:{m}:{s}</div>
+        <div id='time'>#{this.state.h}:{this.state.m}:{this.state.s}</div>
         <Link to='/'>BACK IN</Link>
       </div>
     )

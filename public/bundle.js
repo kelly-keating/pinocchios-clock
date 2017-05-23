@@ -11177,11 +11177,18 @@ var Clock = function (_React$Component) {
         m: date.getMinutes(),
         s: date.getSeconds()
       });
-      var s = Math.floor(date.getSeconds() * 255 / 59);
-      var m = Math.floor(date.getMinutes() * 255 / 59);
-      var h = Math.floor(date.getHours() * 255 / 23);
+      var s = this.colour(this.state.s, 60);
+      var m = this.colour(this.state.m, 60);
+      var h = this.colour(this.state.h, 24);
+
+      console.log(h + ' ' + m + ' ' + s);
 
       document.body.style.backgroundColor = 'rgb(' + s + ',' + m + ',' + h + ')';
+    }
+  }, {
+    key: 'colour',
+    value: function colour(time, base) {
+      return Math.floor(time * 255 / (base - 1));
     }
   }, {
     key: 'linkToClock',
@@ -11199,11 +11206,6 @@ var Clock = function (_React$Component) {
   }, {
     key: 'ownPage',
     value: function ownPage() {
-      var date = new Date();
-      var s = date.getSeconds();
-      var m = date.getMinutes();
-      var h = date.getHours();
-
       return _react2.default.createElement(
         'div',
         { id: 'clock' },
@@ -11212,11 +11214,11 @@ var Clock = function (_React$Component) {
           'div',
           { id: 'time' },
           '#',
-          h,
+          this.state.h,
           ':',
-          m,
+          this.state.m,
           ':',
-          s
+          this.state.s
         ),
         _react2.default.createElement(
           _reactRouterDom.Link,
