@@ -27,8 +27,6 @@ class Clock extends React.Component {
     var m = this.colour(this.state.m, 60)
     var h = this.colour(this.state.h, 24)
 
-    console.log(`${h} ${m} ${s}`);
-
     document.body.style.backgroundColor = `rgb(${s},${m},${h})`
   }
 
